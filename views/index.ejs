@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header{
+            margin: 20px 25px;
+        }
+
+        header p{
+            color: gray;
+        }
+
+        .container{
+            /* background-color: green; */
+            margin: 0px 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 25px;
+        }
+    </style>
+    <title>truNews</title>
+</head>
+<body>
+    <header>
+        <h2>truNews</h2>
+        <p>Brought to you by Darshan, Hritik, Kushal and Nikhil.</p>
+    </header>
+    <div class="container">
+        <% for(let i = 0; i < news.length; i++){ %>
+            <%- include('partials/news-box', {
+                title: news[i]['title'],
+                description: news[i]['description'] || '',
+                imgUrl: news[i]['imgUrl'] || '',
+                publishedAt: news[i]['publishedAt'],
+                url: news[i]['url'] || ''
+            }) %>
+        <% } %>
+    </div>
+</body>
+</html>
